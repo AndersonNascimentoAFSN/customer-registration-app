@@ -11,7 +11,7 @@ export default class ClientsRegistered extends Component {
        </tr>
      ))
   }
-
+  
   render() {
     const clients = [ 
       // {

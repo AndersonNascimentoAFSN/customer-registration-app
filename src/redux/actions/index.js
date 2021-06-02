@@ -1,7 +1,7 @@
 export const REGISTER = 'REGISTER';
 export const DELETE = 'DELETE';
 
-export const register = (payload) => ({
+export const register = (user) => ({
   type: REGISTER,
-  payload,
+  payload: user,
 });

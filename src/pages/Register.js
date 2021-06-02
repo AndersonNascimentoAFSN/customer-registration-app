@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { register } from '../redux/actions';
 
-export default class Register extends Component {
+class Register extends Component {
   constructor() {
     super();
     this.state = {
@@ -18,7 +20,10 @@ export default class Register extends Component {
   }
 
   handleOnClick = () => {
-    console.log('Salvar no storage/store');
+    const { registerUser } = this.props
+    const { name, email, age } = this.state;
+    const client = { name, email, age }
+    registerUser(client);
   }
 
   render() {
@@ -49,3 +54,9 @@ export default class Register extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  registerUser: (client) => { dispatch(register(client)) }
+})
+
+export default connect(null, mapDispatchToProps)(Register)
